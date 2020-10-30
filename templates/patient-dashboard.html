@@ -1,0 +1,136 @@
+{% extends 'default.html' %} {% block body %} {% include
+'partials/navbar.html'%}
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-offset-1 landing-caption">
+          <h1 class="title is-1 is-bold is-spaced">Patient Dashboard</h1>
+          <h2 class="subtitle is-5">Hello there, General Kenobi</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium">
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">Family members</h2>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns is-multiline is-align-items-stretch">
+        <div class="column is-3">
+          <div class="box has-background-dark has-text-white">
+            <div class="has-text-centered">
+              <div class="icon-wrap is-icon-reveal">
+                <ion-icon name="person" size="large"></ion-icon>
+              </div>
+              <h4 class="is-size-3">Person 1</h4>
+              <p>
+                <span class="tag is-success">Safe</span>
+              </p>
+            </div>
+          </div>
+        </div>
+          <div class="column is-3">
+            <div class="box has-background-dark has-text-white">
+              <div class="has-text-centered">
+                <div class="icon-wrap is-icon-reveal">
+                  <ion-icon name="person" size="large"></ion-icon>
+                </div>
+                <h4 class="is-size-3">Person 2</h4>
+                <p>
+                  <span class="tag is-danger">Threatened</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box has-background-dark has-text-white">
+              <div class="has-text-centered">
+                <div class="icon-wrap is-icon-reveal">
+                  <ion-icon name="person" size="large"></ion-icon>
+                </div>
+                <h4 class="is-size-3">Person 3</h4>
+                <p>
+                  <span class="tag is-success">Safe</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="box has-background-dark has-text-white">
+              <div class="has-text-centered">
+                <div class="icon-wrap is-icon-reveal">
+                  <ion-icon name="add-circle-outline" size="large"></ion-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-feature-grey">
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">Services</h2>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <h4 class="title is-size-4">Share Pulse Rate</h4>
+            <p class="content">
+              This is some cool explanatory text that is on two rows
+            </p>
+            <a href="#" class="button btn-align-md primary-btn raised"
+              >Open detector</a
+            >
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <h4 class="title is-size-4">Share XRay</h4>
+            <p class="content">
+              This is some cool explanatory text that is on two rows
+            </p>
+            <a href="#" class="button btn-align-md primary-btn raised"
+              >Open file</a
+            >
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <h4 class="title is-size-4">Diagnosis Bot</h4>
+            <p class="content">
+              This is some cool explanatory text that is on two rows
+            </p>
+            <a href="#" class="button btn-align-md primary-btn raised"
+              >Launch bot</a
+            >
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <h4 class="title is-size-4">Chat with a doctor</h4>
+            <p class="content">
+              This is some cool explanatory text that is on two rows
+            </p>
+            <a href="#" class="button btn-align-md primary-btn raised"
+              >Contact doctor</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock body %}
