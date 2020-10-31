@@ -1,0 +1,66 @@
+{% extends 'default.html' %} {% block body %} {% include
+    'partials/navbar.html'%}
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-offset-1 landing-caption">
+              <h1 class="title is-1 is-bold is-spaced">Profile</h1>
+              <h2 class="subtitle is-5">Hello there, {{ session["user"] }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<section class="section">
+    <div class="container">
+      <div class="title-wrapper has-text-centered">
+        <h2 class="title is-2">Share information</h2>
+        <div class="divider is-centered"></div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <form action="" method="post">
+
+                <div class="field">
+                    {{ form.height.label() }}
+                    <div class="control">
+                        {{ form.height(class_="input") }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.weight.label() }}
+                    <div class="control">
+                        {{ form.weight(class_="input") }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.age.label() }}
+                    <div class="control">
+                        {{ form.age(class_="input") }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.bloodgrp.label() }}
+                    <div class="control">
+                        {{ form.bloodgrp(class_="input") }}
+                    </div>
+                </div>
+        
+        <div class="field">
+            <div class="control">
+                {{ form.submit(class_="button is-primary") }}
+            </div>
+        </div>
+    </form>
+        </div>
+    </div>
+    </div>
+</div>
+    </div>
+  </section>
+    {% endblock body %}
+    

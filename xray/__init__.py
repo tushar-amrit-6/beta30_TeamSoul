@@ -9,9 +9,13 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
-def model_predict(img_path):
+MODEL_PATH ='xray/model.h5'
+
+# Load your trained model
+model = load_model(MODEL_PATH)
+
+def model_predict(img_path, model=model):
     img = image.load_img(img_path, target_size=(224, 224))
-    model = load_model('./model.py')
 
     x = image.img_to_array(img)
     x /= 255
@@ -22,4 +26,7 @@ def model_predict(img_path):
         return True
     else:
         return False
-    return preds
+    return preds    
+
+if __name__ == "__main__":
+    print(model_predict('aa.jpeg', model=model))

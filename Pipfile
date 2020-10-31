@@ -15,6 +15,7 @@ tensorflow = "*"
 flask-wtf = "*"
 email-validator = "*"
 pillow = "*"
+flask-mysqldb = "*"
 
 [requires]
 python_version = "3.8"

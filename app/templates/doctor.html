@@ -1,11 +1,11 @@
 {% extends 'default.html' %} {% block body %} {% include
 'partials/navbar.html'%}
-<section class="hero is-primary is-bold">
+<section class="hero is-info is-bold">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-offset-1 landing-caption">
-          <h1 class="title is-1 is-bold is-spaced">Family</h1>
+          <h1 class="title is-1 is-bold is-spaced">Doctor Dashboard</h1>
           <h2 class="subtitle is-5">Hello there, {{ session["user"] }}</h2>
         </div>
       </div>
@@ -37,28 +37,11 @@
                 <span class="tag is-danger">Threatened</span>
                 {% endif %}
               </p>
-              <p>
-                {{ member["age"] }}
-              </p>
+              <p>{{ member["age"] }}</p>
             </div>
           </div>
         </div>
         {% endfor %}
-
-        <div class="column is-3">
-            <div class="box has-background-dark has-text-white">
-              <div class="has-text-centered">
-                <div class="icon-wrap is-icon-reveal">
-                  <ion-icon name="add-circle-outline" size="large"></ion-icon>
-                </div>
-                <form action="" method="post">
-                  {{ form.new_email() }}
-                  {{ form.submit() }}
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

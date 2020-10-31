@@ -13,52 +13,6 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2">Share information</h2>
-      <div class="divider is-centered"></div>
-    </div>
-  </div>
-  <div class="content-wrapper">
-    <div class="columns">
-      <div class="column is-8 is-offset-2">
-        <div class="field">
-          <label class="label">Height</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Height">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Weight</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Weight">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Age</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Age">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Blood Group</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Enter Blook Group">
-          </div>
-        </div>
-        
-        <div class="field">
-          <div class="control">
-            <button class="button is-primary">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section-feature-grey">
   <div class="container">
     <div class="title-wrapper has-text-centered">
@@ -96,6 +50,7 @@
                     </span>
                   </span>
                 </label>
+                {{ form.submit() }}
               </div>
             </form>
             <p class="content">
