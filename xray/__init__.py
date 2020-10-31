@@ -1,34 +1,25 @@
+import sys
 import os
-import cv2
+import glob
+import re
 import numpy as np
-import keras
-import tensorflow as tf
-from keras.layers import *
-from keras.models import Model, load_model
-from keras.preprocessing import image
-from keras.utils import np_utils
-from keras.models import model_from_json
 
+# Keras
+from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
 
-def xray_predict(image):
-    model = tf.lite.TFLiteConverter.from_keras_model('.')
-    # model = load_model('model_covid.h5')
-    model._make_predict_function()
-    frame = cv2.imread(image)
-    test_data = cv2.resize(frame, (224, 224))
+def model_predict(img_path):
+    img = image.load_img(img_path, target_size=(224, 224))
+    model = load_model('./model.py')
 
-    test_data = np.array(test_data)
-    test_data.shape = (1, 224, 224, 3)
+    x = image.img_to_array(img)
+    x /= 255
+    x = np.expand_dims(x, axis=0)
 
-    zz = model.predict(test_data)
-
-    if zz[0][0] < 0.24:
+    preds = model.predict(x)
+    if preds < 0.24:
         return True
     else:
         return False
-    cv2.destroyAllWindows()
-    return True
-
-
-if __name__ == '__main__':
-    print(xray_predict('aa.jpeg'))
+    return preds

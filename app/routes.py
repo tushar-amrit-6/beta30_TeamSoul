@@ -1,30 +1,9 @@
 import os
 import secrets
 from app import app
-from xray import xray_predict
+from xray import model_predict
 from flask import render_template, url_for, flash, redirect, request, Response, session
 from app.forms import ImageForm, LoginForm
-
-import pyrebase
-
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-
-firebaseConfig = {
-    "apiKey": "AIzaSyD3bIty5_hk-XspqtTASpV2tBlqQyNSPgs",
-    "authDomain": "digi-doc-7d829.firebaseapp.com",
-    "databaseURL": "https://digi-doc-7d829.firebaseio.com",
-    "projectId": "digi-doc-7d829",
-    "storageBucket": "digi-doc-7d829.appspot.com",
-    "messagingSenderId": "695538257595",
-    "appId": "1:695538257595:web:db9a045e63232a3457639e",
-    "measurementId": "G-E1E9DPQ022"
-}
-
-
-firebase = pyrebase.initialize_app(firebaseConfig)
-auth = firebase.auth()
 
 
 @app.route('/')
@@ -32,16 +11,26 @@ def home():
     return render_template('home.html')
 
 
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_name = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/assets/img/xray', picture_name)
+
+    form_picture.save(picture_path)
+    return picture_name
+
+
 @app.route('/patient/dashboard', methods=['GET', 'POST'])
 def patient_dashboard():
-    if "user" not in session:
-        flash("You must log in first")
-        return redirect(url_for("login"))
+    # if "user" not in session:
+    # flash("You must log in first")
+    # return redirect(url_for("login"))
 
     form = ImageForm()
     if form.validate_on_submit():
-        # covid_prediction = xray_predict(form.picture.data)
-        covid_prediction = False
+        f_name = save_picture(form.picture.data)
+        covid_prediction = model_predict('/static/assets/img/xray/0110c76a1cbc5366.jpeg')
         if covid_prediction is True:
             flash('You have high chances of Covid-19')
         else:
@@ -50,8 +39,12 @@ def patient_dashboard():
 
 
 @app.route('/patient/family', methods=['GET', 'POST'])
-def family():
+def pharmacy():
     return render_template('family.html')
+
+@app.route('/pharmacy', methods=['GET'])
+def family():
+    return render_template('pharmacy.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])

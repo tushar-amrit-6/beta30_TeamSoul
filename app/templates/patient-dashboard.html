@@ -89,20 +89,14 @@
               {{ form.hidden_tag() }}
               <div class="file is-justify-content-center m-4">
                 <label class=file-label>
-                  {{ form.picture(class_="file-input") }}
+                  <input class="file-input" id="picture" name="picture" required="" type="file" onchange="this.form.submit(">
                   <span class="file-cta">
                     <span class="file-label">
                       Upload file
                     </span>
                   </span>
                 </label>
-                  {% if form.picture.errors %}
-                  {% for error in form.picture.errors %}
-                  <small class="help has-text-danger">{{ error }}</small>
-                  {% endfor %}
-                  {% endif %}
               </div>
-              {{ form.submit(class_='button btn-align-md primary-btn raised') }}
             </form>
             <p class="content">
               {% with messages = get_flashed_messages() %}

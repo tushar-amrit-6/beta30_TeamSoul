@@ -14,10 +14,7 @@ opencv-python = "*"
 tensorflow = "*"
 flask-wtf = "*"
 email-validator = "*"
-pyrebase = "*"
-flask-boiler = "*"
-firebase-admin = "*"
-flask-sqlalchemy = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
