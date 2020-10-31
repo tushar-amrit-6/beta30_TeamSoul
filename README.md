@@ -3,8 +3,8 @@
 
 S.N. |Case | Status | 
 :------------ | :-------------| :-------------| 
-1| Calculation of pulse rate  | :x: |
-2| Classification of X Ray report | :x: | 
+1| Calculation of pulse rate  | :heavy_check_mark: |
+2| Classification of X Ray report | :heavy_check_mark: | 
 3| ChatBot | :heavy_check_mark: | 
 4| ~~Real time Chat Box~~ | :x: |  
 5| VideoChat using WebRTC| :heavy_check_mark: |
