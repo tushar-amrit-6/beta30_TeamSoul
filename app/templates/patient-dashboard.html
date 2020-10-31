@@ -102,9 +102,35 @@
             <p class="content">
               This is some cool explanatory text that is on two rows
             </p>
-            <a href="#" class="button btn-align-md primary-btn raised"
-              >Open file</a
-            >
+            <form method="POST" action="" enctype="multipart/form-data" class="img-upload">
+              {{ form.hidden_tag() }}
+              <div class="file is-justify-content-center m-4">
+                <label class=file-label>
+                  {{ form.picture(class_="file-input") }}
+                  <span class="file-cta">
+                    <span class="file-label">
+                      Upload file
+                    </span>
+                  </span>
+                </label>
+                  {% if form.picture.errors %}
+                  {% for error in form.picture.errors %}
+                  <small class="help has-text-danger">{{ error }}</small>
+                  {% endfor %}
+                  {% endif %}
+              </div>
+              {{ form.submit(class_='button btn-align-md primary-btn raised') }}
+            </form>
+            <p class="content">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              {% for message in messages %}
+              <p class="help has-text-danger">{{ message }}</p>
+              {% endfor %}
+              </help>
+              {% endif %}
+              {% endwith %}
+            </p>
           </div>
         </div>
         <div class="column is-one-quarter">

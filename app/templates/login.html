@@ -1,0 +1,56 @@
+{% extends 'default.html' %} {% block body %} {% include 'partials/navbar.html'
+%}
+<section
+  class="section is-medium has-background-image"
+  data-background="https://source.unsplash.com/g30P1zcOzXo/1600x900"
+  data-color="#4FC1EA"
+  data-color-opacity=".6"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2 light-text is-spaced">Shop Login</h2>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <div class="box">
+            <form action="" method="POST">
+              <div class="field">
+                {{ form.email.label() }}
+                <div class="control">
+                  {{ form.email(class_='input is-medium', placeholder="Enter email") }}
+                </div>
+              </div>
+              <div class="field">
+                {{ form.password.label() }}
+                <div class="control">
+                  {{ form.password( class_="input is-medium", placeholder="Enter password") }}
+                </div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="help has-text-danger">{{ message }}</p>
+                {% endfor %}
+                </help>
+                {% endif %}
+                {% endwith %}
+              </div>
+
+              <button
+                class="button secondary-btn is-rounded raised"
+                type="submit"
+              >
+                Log in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}
