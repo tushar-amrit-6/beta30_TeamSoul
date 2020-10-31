@@ -8,6 +8,12 @@ autopep8 = "*"
 
 [packages]
 flask = "*"
+numpy = "*"
+keras = "*"
+opencv-python = "*"
+tensorflow = "*"
+flask-wtf = "*"
+email-validator = "*"
 
 [requires]
 python_version = "3.8"
