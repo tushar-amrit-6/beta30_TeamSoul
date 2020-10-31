@@ -1,5 +1,5 @@
 <h1 align="center">DigiDoc</h1>
-<h1 align="center">Cases To Cover</h1>
+<h1 align="center">Features to be Implemented</h1>
 
 S.N. |Case | Status | 
 :------------ | :-------------| :-------------| 
