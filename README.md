@@ -5,8 +5,8 @@ S.N. |Case | Status |
 :------------ | :-------------| :-------------| 
 1| Calculation of pulse rate  | :x: |
 2| Classification of X Ray report | :x: | 
-3| ChatBot | :x: | 
+3| ChatBot | :heavy_check_mark: | 
 4| Real time Chat Box | :x: |  
-5| VideoChat using Agora SDK| :x: |
+5| VideoChat using WebRTC| :heavy_check_mark: |
 6| Visulization of patient's data at doctor's end | :x: |
 7| Authenticaltion | :x: |
