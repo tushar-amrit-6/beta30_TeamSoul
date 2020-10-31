@@ -20,10 +20,16 @@
                 <a href="#" class="navbar-item is-secondary">
                     Features
                 </a>
-                <a class="navbar-item modal-trigger" data-modal="auth-modal">
-                    <span class="button signup-button rounded secondary-btn raised">
+                <a class="navbar-item">
+                    {% if session["user"] %}
+                    <a class="button signup-button rounded secondary-btn raised" href="/logout">
+                        Logout
+                    </a>
+                    {% else %}
+                    <a class="button signup-button rounded secondary-btn raised" href="{{ url_for('login') }}">
                         Login
-                    </span>
+                    </a>
+                    {% endif %}
                 </a>
             </div>
         </div>

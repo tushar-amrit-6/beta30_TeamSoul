@@ -9,7 +9,7 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2 light-text is-spaced">Patient Login</h2>
+      <h2 class="title is-2 light-text is-spaced">Patient Signup</h2>
       <div class="divider is-centered"></div>
     </div>
 
@@ -18,6 +18,17 @@
         <div class="column is-6 is-offset-3">
           <div class="box">
             <form action="" method="POST">
+              <div class="field">
+                {{ form.name.label() }}
+                <div class="control">
+                  {{ form.name(class_='input is-medium', placeholder="Enter name") }}
+                </div>
+                {% if form.name.errors %}
+                {% for error in form.email.errors %}
+                  <p class="help is-danger">{{ error }}</small>
+                {% endfor %}
+                {% endif %}
+              </div>
               <div class="field">
                 {{ form.email.label() }}
                 <div class="control">
@@ -33,6 +44,20 @@
                 {{ form.password.label() }}
                 <div class="control">
                   {{ form.password( class_="input is-medium", placeholder="Enter password") }}
+                </div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="help has-text-danger">{{ message }}</p>
+                {% endfor %}
+                </help>
+                {% endif %}
+                {% endwith %}
+              </div>
+              <div class="field">
+                {{ form.confirm_password.label() }}
+                <div class="control">
+                  {{ form.confirm_password(class_="input is-medium", placeholder="Enter password") }}
                 </div>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
