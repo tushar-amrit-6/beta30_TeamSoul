@@ -13,65 +13,48 @@
   </div>
 </section>
 
-<section class="section is-medium">
+<section class="section">
   <div class="container">
     <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2">Family members</h2>
+      <h2 class="title is-2">Share information</h2>
       <div class="divider is-centered"></div>
     </div>
-
-    <div class="content-wrapper">
-      <div class="columns is-multiline is-align-items-stretch">
-        <div class="column is-3">
-          <div class="box has-background-dark has-text-white">
-            <div class="has-text-centered">
-              <div class="icon-wrap is-icon-reveal">
-                <ion-icon name="person" size="large"></ion-icon>
-              </div>
-              <h4 class="is-size-3">Person 1</h4>
-              <p>
-                <span class="tag is-success">Safe</span>
-              </p>
-            </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <div class="field">
+          <label class="label">Height</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Height">
           </div>
         </div>
-          <div class="column is-3">
-            <div class="box has-background-dark has-text-white">
-              <div class="has-text-centered">
-                <div class="icon-wrap is-icon-reveal">
-                  <ion-icon name="person" size="large"></ion-icon>
-                </div>
-                <h4 class="is-size-3">Person 2</h4>
-                <p>
-                  <span class="tag is-danger">Threatened</span>
-                </p>
-              </div>
-            </div>
+        <div class="field">
+          <label class="label">Weight</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Weight">
           </div>
-          <div class="column is-3">
-            <div class="box has-background-dark has-text-white">
-              <div class="has-text-centered">
-                <div class="icon-wrap is-icon-reveal">
-                  <ion-icon name="person" size="large"></ion-icon>
-                </div>
-                <h4 class="is-size-3">Person 3</h4>
-                <p>
-                  <span class="tag is-success">Safe</span>
-                </p>
-              </div>
-            </div>
+        </div>
+        <div class="field">
+          <label class="label">Age</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Age">
           </div>
-          <div class="column is-3">
-            <div class="box has-background-dark has-text-white">
-              <div class="has-text-centered">
-                <div class="icon-wrap is-icon-reveal">
-                  <ion-icon name="add-circle-outline" size="large"></ion-icon>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="field">
+          <label class="label">Blood Group</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Enter Blook Group">
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary">Submit</button>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -87,11 +70,11 @@
       <div class="columns">
         <div class="column is-one-quarter">
           <div class="box is-bordered has-text-centered is-feature-reveal">
-            <h4 class="title is-size-4">Share Pulse Rate</h4>
+            <h4 class="title is-size-4">Check up on Family</h4>
             <p class="content">
               This is some cool explanatory text that is on two rows
             </p>
-            <a href="#" class="button btn-align-md primary-btn raised"
+            <a href="{{ url_for('family') }}" class="button btn-align-md primary-btn raised"
               >Open detector</a
             >
           </div>

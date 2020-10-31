@@ -20,7 +20,7 @@
                 <a href="#" class="navbar-item is-secondary">
                     Features
                 </a>
-                <a class="navbar-item">
+                <div class="navbar-item">
                     {% if session["user"] %}
                     <a class="button signup-button rounded secondary-btn raised" href="/logout">
                         Logout
@@ -30,7 +30,7 @@
                         Login
                     </a>
                     {% endif %}
-                </a>
+                </div>
             </div>
         </div>
     </div>

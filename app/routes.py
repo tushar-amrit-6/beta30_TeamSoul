@@ -49,6 +49,11 @@ def patient_dashboard():
     return render_template('patient-dashboard.html', form=form)
 
 
+@app.route('/patient/family', methods=['GET', 'POST'])
+def family():
+    return render_template('family.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
