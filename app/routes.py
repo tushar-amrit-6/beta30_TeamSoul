@@ -19,7 +19,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', title="Home")
 
 
 def save_picture(form_picture):
@@ -45,10 +45,15 @@ def patient_dashboard():
         covid_prediction = model_predict(os.path.join(
             app.root_path, 'static/assets/img/xray', f_name), )
         if covid_prediction is True:
-            flash('You have high chances of Covid-19')
+            email = session["email"]
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute(
+                'UPDATE DETAILS SET xraystatus = "Threatened", status = "Threatened" WHERE email = %s', (email,))
+            mysql.connection.commit()
+            flash('You have high chances of Covid-19, please see a doctor.')
         else:
-            flash('Congratulations! You have low chances of Covid-19')
-    return render_template('patient-dashboard.html', form=form)
+            flash('Congratulations! You have low chances of Covid-19.')
+    return render_template('patient-dashboard.html', form=form, title="Patient Dashboard")
 
 
 @app.route('/patient/profile', methods=['GET', 'POST'])
@@ -66,7 +71,7 @@ def profile():
             'UPDATE DETAILS SET age = %s, height = %s,weight = %s,blood_grp = %s WHERE email = %s', (age, height, weight, bloodgrp, email))
         mysql.connection.commit()
         return redirect(url_for('patient_dashboard'))
-    return render_template('profile.html', form=form)
+    return render_template('profile.html', form=form, title="SignUp")
 
 
 @app.route('/patient/family', methods=['GET', 'POST'])
@@ -78,7 +83,7 @@ def family():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM DETAILS WHERE familyid = %s', (fid,))
         members = cursor.fetchall()
-        return render_template('family.html', members=members, form=form)
+        return render_template('family.html', members=members, form=form, title="Family")
 
     elif "email" in session and request.method == "POST":
         if "new_email" in request.form and request.method == "POST":
@@ -98,7 +103,7 @@ def family():
                     'UPDATE DETAILS SET familyid = %s WHERE familyid = %s', (cur_fid, new_fid))
                 mysql.connection.commit()
             else:
-                flash("No such User!")
+                flash("No such user!")
         return redirect(url_for('family'))
     else:
         return redirect(url_for('login'))
@@ -109,16 +114,17 @@ def doctor():
     if "email" in session and request.method == "GET":
         email = session['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM DETAILS WHERE email NOT IN ("sosinesta3@gmail.com")')
+        cursor.execute(
+            'SELECT * FROM DETAILS WHERE email NOT IN ("doctor@gmail.com")')
         members = cursor.fetchall()
-        return render_template('doctor.html', members=members)
+        return render_template('doctor.html', members=members, title="Doctor")
 
-    return render_template('doctor.html')
+    return render_template('doctor.html', title="Doctor")
 
 
 @app.route('/pharmacy')
 def pharmacy():
-    return render_template('pharmacy.html')
+    return render_template('pharmacy.html', title="Pharmacy")
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -143,14 +149,14 @@ def login():
             patient = cursor.fetchone()
             session['fid'] = patient["familyid"]
 
-            if session["email"] == 'sosinesta3@gmail.com':
+            if session["email"] == 'doctor@gmail.com':
                 return redirect(url_for('doctor'))
             else:
                 return redirect(url_for('patient_dashboard'))
         else:
             flash('Incorrect username or password')
             return redirect(url_for('login'))
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, title="Login")
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -173,13 +179,13 @@ def signup():
             cursor.execute(
                 '''INSERT INTO USERS VALUES (%s, %s, %s,%s,'1234567890',-1,-1,-1,'NA')''', (name, email, password, fid))
             cursor.execute(
-                '''INSERT INTO DETAILS VALUES (%s,'NA',-1,%s,'1234567890',-1,-1,-1,'NA','NA','NA')''', (email, fid))
+                '''INSERT INTO DETAILS VALUES (%s, %s,'NA',-1,%s,'1234567890',-1,-1,-1,'NA','NA','NA')''', (name, email, fid))
             mysql.connection.commit()
             flash('You have succesfully registered!')
-            return redirect(url_for('login'))
+            return redirect(url_for('profile'))
     elif request.method == 'POST':
         flash('Please fill out the form!')
-    return render_template('signup.html', form=form)
+    return render_template('signup.html', form=form, title="Signup")
 
 
 @app.route('/logout')
@@ -187,3 +193,12 @@ def logout():
     if "email" in session:
         session.pop("email", None)
         return redirect(url_for('login'))
+
+
+@app.route('/find')
+def find():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('''SELECT * from DETAILS''')
+    results = cursor.fetchall()
+    print(results)
+    return "Done"

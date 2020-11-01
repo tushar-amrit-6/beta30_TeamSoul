@@ -6,7 +6,7 @@
       <div class="columns is-vcentered">
         <div class="column is-offset-1 landing-caption">
           <h1 class="title is-1 is-bold is-spaced">Patient Dashboard</h1>
-          <h2 class="subtitle is-5">Hello there, {{ user }}</h2>
+          <h2 class="subtitle is-5">Hello there, {{ session["name"] }}</h2>
         </div>
       </div>
     </div>
@@ -21,20 +21,34 @@
     </div>
 
     <div class="content-wrapper">
-      <div class="columns">
-        <div class="column is-one-quarter">
+      <div class="columns is-multiline">
+        <div class="column is-one-third">
           <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/family.jpg') }}" alt="" width="100">
             <h4 class="title is-size-4">Check up on Family</h4>
             <p class="content">
               This is some cool explanatory text that is on two rows
             </p>
             <a href="{{ url_for('family') }}" class="button btn-align-md primary-btn raised"
-              >Open detector</a
+            >Go to Family</a
             >
           </div>
         </div>
-        <div class="column is-one-quarter">
+        <div class="column is-one-third">
           <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/pulse.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">Share pulse rate</h4>
+            <p class="content">
+              This is some cool explanatory text that is on two rows
+            </p>
+            <a href="#" class="button btn-align-md primary-btn raised"
+            >Launch detector</a
+            >
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/x-ray.png') }}" alt="" width="100">
             <h4 class="title is-size-4">Share XRay</h4>
             <p class="content">
               This is some cool explanatory text that is on two rows
@@ -59,30 +73,44 @@
               {% for message in messages %}
               <p class="help has-text-danger">{{ message }}</p>
               {% endfor %}
-              </help>
-              {% endif %}
-              {% endwith %}
-            </p>
-          </div>
+            </help>
+            {% endif %}
+            {% endwith %}
+          </p>
         </div>
-        <div class="column is-one-quarter">
+      </div>
+      <div class="column is-one-third">
+        <div class="box is-bordered has-text-centered is-feature-reveal">
+          <img src="{{ url_for('static', filename='assets/img/logos/chatbot.png') }}" alt="" width="100">
+          <h4 class="title is-size-4">Diagnosis Bot</h4>
+          <p class="content">
+            This is some cool explanatory text that is on two rows
+          </p>
+          <a href="https://chatbot.hellotars.com/conv/41BcE1/" class="button btn-align-md primary-btn raised" target="_blank"
+          >Launch bot</a
+          >
+        </div>
+      </div>
+      <div class="column is-one-third">
           <div class="box is-bordered has-text-centered is-feature-reveal">
-            <h4 class="title is-size-4">Diagnosis Bot</h4>
+            <img src="{{ url_for('static', filename='assets/img/logos/pharmacy.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">View nearby pharmacies</h4>
             <p class="content">
               This is some cool explanatory text that is on two rows
             </p>
-            <a href="https://chatbot.hellotars.com/conv/41BcE1/" class="button btn-align-md primary-btn raised"
-              >Launch bot</a
+            <a href="{{ url_for('pharmacy') }}" class="button btn-align-md primary-btn raised"
+            >View pharmacy</a
             >
           </div>
         </div>
-        <div class="column is-one-quarter">
+        <div class="column is-one-third">
           <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/video-call.jpg') }}" alt="" width="100">
             <h4 class="title is-size-4">Chat with a doctor</h4>
             <p class="content">
               This is some cool explanatory text that is on two rows
             </p>
-            <a href="#" class="button btn-align-md primary-btn raised"
+            <a href="https://videocalldoctor.heroku.app" class="button btn-align-md primary-btn raised" target="_blank"
               >Contact doctor</a
             >
           </div>

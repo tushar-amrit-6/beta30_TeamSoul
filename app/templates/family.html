@@ -31,14 +31,11 @@
               </div>
               <h4 class="is-size-3">{{ member["name"] }}</h4>
               <p>
-                {% if member["status"] == "NA" %}
-                <span class="tag is-success">Safe</span>
-                {% else %}
+                {% if member["status"] == "Threatened" %}
                 <span class="tag is-danger">Threatened</span>
+                {% else %}
+                <span class="tag is-success">Safe</span>
                 {% endif %}
-              </p>
-              <p>
-                {{ member["age"] }}
               </p>
             </div>
           </div>
@@ -51,9 +48,28 @@
                 <div class="icon-wrap is-icon-reveal">
                   <ion-icon name="add-circle-outline" size="large"></ion-icon>
                 </div>
+                <h4 class="is-size-4">Add member</h4>
                 <form action="" method="post">
-                  {{ form.new_email() }}
-                  {{ form.submit() }}
+
+                <div class="field">
+                  <div class="control">
+                    {{ form.new_email() }}
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    {{ form.submit(class_="button") }}
+                  </div>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  {% for message in messages %}
+                  <p class="help has-text-danger">{{ message }}</p>
+                  {% endfor %}
+                  </help>
+                  {% endif %}
+                  {% endwith %}
+              </div>
                 </form>
               </div>
             </div>
