@@ -16,6 +16,7 @@ flask-wtf = "*"
 email-validator = "*"
 pillow = "*"
 flask-mysqldb = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
