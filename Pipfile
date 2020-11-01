@@ -16,6 +16,8 @@ email-validator = "*"
 pillow = "*"
 flask-mysqldb = "*"
 gunicorn = "*"
+keras-preprocessing = "*"
+keras-applications = "*"
 
 [requires]
 python_version = "3.8"
