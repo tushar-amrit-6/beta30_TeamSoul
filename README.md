@@ -11,3 +11,4 @@ S.N. |Case | Status |
 6| Visulization of patient's data at doctor's end | :heavy_check_mark: |
 7| Authenticaltion | :heavy_check_mark: |
 8| Visualization of patient's family data at patient's end | :heavy_check_mark: |
+
