@@ -48,13 +48,23 @@ def patient_dashboard():
             email = session["email"]
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(
-                'UPDATE DETAILS SET xraystatus = "Threatened", status = "Threatened" WHERE email = %s', (email,))
+                'UPDATE DETAILS SET xraystatus = "Threatened", status = "Threatened", disease = "Covid-19" WHERE email = %s', (email,))
             mysql.connection.commit()
             flash('You have high chances of Covid-19, please see a doctor.')
         else:
             flash('Congratulations! You have low chances of Covid-19.')
     return render_template('patient-dashboard.html', form=form, title="Patient Dashboard")
 
+
+@app.route('/patient/<disease>')
+def disease(disease):
+    if disease:
+        email = session["email"]
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'UPDATE DETAILS SET disease = %s, status = "Threatened" WHERE email = %s', (disease, email))
+        mysql.connection.commit()
+    return redirect(url_for('patient_dashboard'))
 
 @app.route('/patient/profile', methods=['GET', 'POST'])
 def profile():
@@ -141,7 +151,6 @@ def login():
             'SELECT * FROM USERS WHERE email = %s AND password = %s', (email, password))
         patient = cursor.fetchone()
         if patient:
-            session['loggedin'] = True
             session['email'] = patient['email']
             session['name'] = patient['name']
             cursor.execute(
@@ -192,13 +201,15 @@ def signup():
 def logout():
     if "email" in session:
         session.pop("email", None)
+        session.pop("name", None)
         return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
 
 @app.route('/find')
 def find():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('''SELECT * from DETAILS''')
+    cursor.execute('''SELECT * from USERS''')
     results = cursor.fetchall()
     print(results)
     return "Done"

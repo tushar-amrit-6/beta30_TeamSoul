@@ -30,14 +30,24 @@
                 <ion-icon name="person" size="large"></ion-icon>
               </div>
               <h4 class="is-size-3">{{ member["name"] }}</h4>
-              <p>
-                {% if member["status"] == "NA" %}
-                <span class="tag is-success">Safe</span>
-                {% else %}
+              <p class="content">Age: {{ member["age"] }}</p>
+              <p class="content">Height: {{ member["height"] }}</p>
+              <p class="content">Weight: {{ member["weight"] }}</p>
+              <p class="content">Blood Group: {{ member["blood_grp"] }}</p>
+              <p class="content">
+                <span class="has-text-weight-bold">
+                  Preliminary diagnosis:
+                </span>
+                <br />
+                {{ member["disease"] }}
+              </p>
+              <p class="content">
+                {% if member["status"] == "Threatened" %}
                 <span class="tag is-danger">Threatened</span>
+                {% else %}
+                <span class="tag is-success">Safe</span>
                 {% endif %}
               </p>
-              <p>{{ member["age"] }}</p>
             </div>
           </div>
         </div>
