@@ -137,6 +137,7 @@ def login():
         if patient:
             session['loggedin'] = True
             session['email'] = patient['email']
+            session['name'] = patient['name']
             cursor.execute(
                 'SELECT * FROM USERS WHERE email = %s', (email,))
             patient = cursor.fetchone()
