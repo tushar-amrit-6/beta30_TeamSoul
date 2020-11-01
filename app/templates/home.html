@@ -8,13 +8,13 @@
         <div class="column is-5 is-offset-1 landing-caption">
           <h1 class="title is-1 is-bold is-spaced">DigiDoc</h1>
           <h2 class="subtitle is-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Your virtual health examiner
           </h2>
           <div class="button-wrap">
-            <a class="button cta is-rounded primary-btn raised">
-              Get Started
+            <a class="button cta is-rounded primary-btn raised" href="{{ url_for('login') }}">
+              Login
             </a>
-            <a class="button cta is-rounded"> Discover </a>
+            <a class="button cta is-rounded" href="{{ url_for('signup') }}"> Signup </a>
           </div>
         </div>
         <div class="column is-5">
@@ -40,185 +40,60 @@
     </div>
 
     <div class="content-wrapper">
-      <div class="columns">
+      <div class="columns is-multiline">
         <div class="column is-one-third">
-          <div
-            class="feature-card is-bordered has-text-centered is-feature-reveal"
-          >
-            <div class="card-title">
-              <h4>Feature 1</h4>
-            </div>
-            <div class="card-icon">
-              <img src="" />
-            </div>
-            <div class="card-text">
-              <p>This is some cool explanatory text that is on two rows</p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="button btn-align-md primary-btn raised"
-                >Free Trial</a
-              >
-            </div>
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/family.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">Check up on Family</h4>
+            <p class="content">
+              Check your family members heath status
+            </p>
           </div>
         </div>
         <div class="column is-one-third">
-          <div
-            class="feature-card is-bordered has-text-centered is-feature-reveal"
-          >
-            <div class="card-title">
-              <h4>Feature 2</h4>
-            </div>
-            <div class="card-icon">
-              <img src="" />
-            </div>
-            <div class="card-text">
-              <p>This is some explanatory text that is on two rows</p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="button btn-align-md primary-btn raised"
-                >Get Started</a
-              >
-            </div>
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/pulse.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">Share pulse rate</h4>
+            <p class="content">
+              Get you pulse count checked!
+            </p>
           </div>
         </div>
         <div class="column is-one-third">
-          <div
-            class="feature-card is-bordered has-text-centered is-feature-reveal"
-          >
-            <div class="card-title">
-              <h4>Feature 3</h4>
-            </div>
-            <div class="card-icon">
-              <img src="" />
-            </div>
-            <div class="card-text">
-              <p>This is some explanatory text that is on two rows</p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="button btn-align-md primary-btn raised"
-                >Get Started</a
-              >
-            </div>
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/x-ray.png') }}" alt="" width="100">
+            <h4 class="title is-size-4">Share XRay</h4>
+            <p class="content">
+              Scan your X-Ray to verify whether you are Covid positive or not
+            </p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="box is-bordered has-text-centered is-feature-reveal">
+          <img src="{{ url_for('static', filename='assets/img/logos/chatbot.png') }}" alt="" width="100">
+          <h4 class="title is-size-4">Diagnosis Bot</h4>
+          <p class="content">
+            Talk to our state-of-the art chatbot
+          </p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/pharmacy.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">View nearby pharmacies</h4>
+            <p class="content">
+              Check your nearby Pharmacies
+            </p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section is-medium">
-  <div class="container">
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2">Awesome Features</h2>
-      <h3 class="subtitle is-5 is-muted">To make you super happy</h3>
-      <div class="divider is-centered"></div>
-    </div>
-
-    <div class="columns is-vcentered side-feature mt-60">
-      <div class="column is-4 is-offset-2">
-        <h3 class="title is-3 mb-10 is-title-reveal">Connect with people</h3>
-        <p class="subtitle is-5 is-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum audissem
-          Antiochum, Brute, ut solebam, cum M. Quae diligentissime contra
-          Aristonem dicuntur a Chryippo.
-        </p>
-      </div>
-      <div class="column is-5">
-        <img alt="" />
-      </div>
-    </div>
-
-    <div class="columns is-vcentered side-feature mt-60">
-      <div class="column is-5 is-offset-1">
-        <img src="" alt="" />
-      </div>
-      <div class="column is-4 is-offset-1">
-        <h3 class="title is-3 mb-10 is-title-reveal">Collaborate easily</h3>
-        <p class="subtitle is-5 is-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum audissem
-          Antiochum, Brute, ut solebam, cum M. Quae diligentissime contra
-          Aristonem dicuntur a Chryippo.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-feature-grey is-medium">
-  <div class="container">
-    <div class="columns is-vcentered app-side">
-      <div class="column is-5 is-offset-1">
-        <h3 class="title is-3 is-spaced is-title-reveal">An intuitive app</h3>
-        <p class="subtitle is-5 is-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum audissem
-          Antiochum, Brute, ut solebam, cum M. Quae diligentissime contra
-          Aristonem dicuntur a Chryippo.
-        </p>
-      </div>
-      <div class="column is-10">
-        <div class="has-text-centered">
-          <img class="pushed-image" src="" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-light-grey is-medium">
-  <div class="container">
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2 is-spaced">Drop us a line or two</h2>
-      <h3 class="subtitle is-5 is-muted">We'd love to hear from You</h3>
-      <div class="divider is-centered"></div>
-    </div>
-
-    <div class="content-wrapper">
-      <div class="columns">
-        <div class="column is-6 is-offset-3">
-          <form>
-            <div class="columns is-multiline">
-              <div class="column is-6">
-                <input
-                  class="input is-medium"
-                  type="text"
-                  placeholder="First Name *"
-                />
-              </div>
-              <div class="column is-6">
-                <input
-                  class="input is-medium"
-                  type="text"
-                  placeholder="Last Name *"
-                />
-              </div>
-              <div class="column is-6">
-                <input
-                  class="input is-medium"
-                  type="text"
-                  placeholder="Email *"
-                />
-              </div>
-              <div class="column is-6">
-                <input
-                  class="input is-medium"
-                  type="email"
-                  placeholder="Company"
-                />
-              </div>
-              <div class="column is-12">
-                <textarea class="textarea" rows="6" placeholder=""></textarea>
-              </div>
-              <div class="column is-12">
-                <div class="form-footer has-text-right mt-10">
-                  <button
-                    class="button cta is-large primary-btn form-button raised is-clear"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </div>
-          </form>
+        <div class="column is-one-third">
+          <div class="box is-bordered has-text-centered is-feature-reveal">
+            <img src="{{ url_for('static', filename='assets/img/logos/video-call.jpg') }}" alt="" width="100">
+            <h4 class="title is-size-4">Chat with a doctor</h4>
+            <p class="content">
+              Still not got questions? Talk to our Doctors
+            </p>
+          </div>
         </div>
       </div>
     </div>
