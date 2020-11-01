@@ -8,5 +8,5 @@ S.N. |Case | Status |
 3| ChatBot | :heavy_check_mark: | 
 4| ~~Real time Chat Box~~ | :x: |  
 5| VideoChat using WebRTC| :heavy_check_mark: |
-6| Visulization of patient's data at doctor's end | :x: |
-7| Authenticaltion | :x: |
+6| Visulization of patient's data at doctor's end | :heavy_check_mark: |
+7| Authenticaltion | :heavy_check_mark: |
